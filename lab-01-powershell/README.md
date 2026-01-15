@@ -27,6 +27,7 @@ Sysmon logged the following fields:
 -	ParentImage: powershell.exe
 -	User: Local user account
 -	Hashes: SHA256=6A7SF3DDA06163BB6253E4F82A283E184D70755C067633C4190FBFF64F0BAECDIMPH9F91C97560360686D37B0E311BB88D64
+
 The Base64 string decoded to the benign command: Get-Date
 
 ## Analysis
