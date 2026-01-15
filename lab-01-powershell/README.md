@@ -1,50 +1,50 @@
 # Lab 01 – Suspicious PowerShell Execution 
 
-# Objective
+## Objective
 Detect and analyse suspicious PowerShell activity using Sysmon on a Windows 11 endpoint. The  -EncodedCommand flag, is a technique associated with obfuscation and malicious script execution. The objective was to validate Sysmon logging and practice SOC triage skills in a controlled lab environment. (Sysmon provides much more focused telemetry than Windows Event Viewer.)
 
-# Environment
+## Environment
 - Windows 11 (VirtualBox)
 - Sysmon (Event IDs 1)
 - PowerShell 5.1
 
-# Path to Sysmon logs:
+## Path to Sysmon logs:
 Application and Services Logs > Microsoft > Windows > Sysmon > Operational
 
-# Detection
+## Detection
 A PowerShell process was observed executing an encoded command with execution
 policy bypass.
 •	Detection Source: Sysmon (Event ID 1 – Process Creation)
 •	Endpoint: Windows 11 VM
-•	User Account: Local user
+•	User Account: windows11
 •	Process: powershell.exe
 •	Command Line: Included the -EncodedCommand parameter
 
-# Events
+## Events
 Sysmon logged the following fields:
 •	Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
-•	CommandLine: powershell.exe -NoProfile -EncodedCommand <Base64String>
+•	CommandLine: “C:\Windows\System32\WindowsPowershell\v1.0\powershell.exe” -NoProfile -EncodedCommand RwBlAHQALQBEAGEAdABlAA==
 •	ParentImage: cmd.exe
 •	User: Local user account
-•	Hashes: SHA256 hash of PowerShell executable
+•	Hashes: “C:\Windows\System32\WindowsPowershell\v1.0\powershell.exe” -NoProfile -EncodedCommand RwBlAHQALQBEAGEAdABlAA==
 •	ProcessGuid: Unique identifier for correlation
 The Base64 string decoded to the benign command: Get-Date
 
-# Analysis
+## Analysis
 Encoded PowerShell commands are commonly used by attackers to evade detection.
 Although the decoded command was benign (`Get-Date`), the execution technique
 matches real-world malware behavior.
 
-# MITRE ATT&CK
+## MITRE ATT&CK
 - T1059.001 – PowerShell
 - T1027 – Obfuscated/Encoded Files
 
-# Recommendations
+## Recommendations
 •	Create a SIEM detection rule to alert on any use of -EncodedCommand.
 •	Add enrichment to decode Base64 automatically during triage.
 •	Monitor for repeated encoded PowerShell executions, especially from unusual parent processes.
 •	Correlate with network and registry events to identify follow up malicious behaviour.
 
-# Conclusion
+## Conclusion
 This activity would be classified as suspicious and warrant further investigation
 in a production SOC environment.
