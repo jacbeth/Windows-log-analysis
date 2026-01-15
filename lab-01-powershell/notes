@@ -1,10 +1,11 @@
 #  Notes – Lab 01
 
 ## Powershell script to encode Get-Time 
-$cmd = 'Get-Time’  # Defines the command to encode
-$bytes = [System.Text.Encoding]::Unicode.GetBytes($cmd) # Converts text into Unicode bytes
-$encoded = [Convert]::ToBase64String($bytes) $encoded # Conversion into a 64 bit string, used to hide commands
-$encoded # prints the output
+- $cmd = 'Get-Process'   Defines the command to encode
+- $bytes = [System.Text.Encoding]::UTF8.GetBytes($cmd)   Converts text into Unicode bytes
+- $encoded = [Convert]::ToBase64String($bytes)    Conversion into a 64 bit string, used to hide commands
+- $encoded    Prints to screen
+- “C:\Windows\System32\WindowsPowershell\v1.0\powershell.exe” -NoProfile -EncodedCommand RwBlAHQALQBEAGEAdABlAA==     Starts process, passes the argument and resultes in Sysmon Event ID 1
 
 ## Initial Observation
 - Sysmon Event ID 1 triggered on powershell.exe
