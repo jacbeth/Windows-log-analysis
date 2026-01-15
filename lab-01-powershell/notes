@@ -16,6 +16,12 @@ $encoded # prints the output
 - What process spawned PowerShell?
 - Is this normal admin behavior?
 
+# Indicators of Compromise
+•	Suspicious command line
+•	Base64 payload
+•	Process information
+•	User account 
+
 ## Decoding Results
 - Base64 decoded using UTF-16LE
 - Decoded command: Get-Date
