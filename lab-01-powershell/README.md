@@ -14,20 +14,20 @@ Application and Services Logs > Microsoft > Windows > Sysmon > Operational
 ## Detection
 A PowerShell process was observed executing an encoded command with execution
 policy bypass.
-•	Detection Source: Sysmon (Event ID 1 – Process Creation)
-•	Endpoint: Windows 11 VM
-•	User Account: windows11
-•	Process: powershell.exe
-•	Command Line: Included the -EncodedCommand parameter
+-	Detection Source: Sysmon (Event ID 1 – Process Creation)
+-	Endpoint: Windows 11 VM
+-	User Account: windows11 local account
+-	Process: powershell.exe
+-	Command Line: Included the -EncodedCommand parameter
 
 ## Events
 Sysmon logged the following fields:
-•	Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
-•	CommandLine: “C:\Windows\System32\WindowsPowershell\v1.0\powershell.exe” -NoProfile -EncodedCommand RwBlAHQALQBEAGEAdABlAA==
-•	ParentImage: cmd.exe
-•	User: Local user account
-•	Hashes: “C:\Windows\System32\WindowsPowershell\v1.0\powershell.exe” -NoProfile -EncodedCommand RwBlAHQALQBEAGEAdABlAA==
-•	ProcessGuid: Unique identifier for correlation
+-	Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+-	CommandLine: “C:\Windows\System32\WindowsPowershell\v1.0\powershell.exe” -NoProfile -EncodedCommand RwBlAHQALQBEAGEAdABlAA==
+-	ParentImage: powershell.exe
+-	User: Local user account
+-	Hashes: 
+-	ProcessGuid: 
 The Base64 string decoded to the benign command: Get-Date
 
 ## Analysis
