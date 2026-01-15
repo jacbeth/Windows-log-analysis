@@ -1,4 +1,4 @@
-# Lab 01 – Suspicious PowerShell Execution  📄 [Analyst Notes](notes.md)
+# Lab 01 – Suspicious PowerShell Execution  📄 [Notes](notes.md)
 
 # Objective
 Detect and analyse suspicious PowerShell activity using Sysmon on a Windows 11 endpoint. The  -EncodedCommand flag, is a technique associated with obfuscation and malicious script execution. The objective was to validate Sysmon logging and practice SOC triage skills in a controlled lab environment. (Sysmon provides much more focused telemetry than Windows Event Viewer.)
