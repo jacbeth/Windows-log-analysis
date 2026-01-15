@@ -24,7 +24,7 @@
 -	User account 
 
 ## Decoding Results
-- Base64 decoded using UTF-16LE
+- Base64 decoded 
 - Decoded command: Get-Date
 - No additional payloads observed
 
