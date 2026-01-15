@@ -1,6 +1,6 @@
 #  Notes – Lab 01
 
-# Powershell script to encode Get-Time 
+## Powershell script to encode Get-Time 
 $cmd = 'Get-Time’  # Defines the command to encode
 $bytes = [System.Text.Encoding]::Unicode.GetBytes($cmd) # Converts text into Unicode bytes
 $encoded = [Convert]::ToBase64String($bytes) $encoded # Conversion into a 64 bit string, used to hide commands
@@ -16,7 +16,7 @@ $encoded # prints the output
 - What process spawned PowerShell?
 - Is this normal admin behavior?
 
-# Indicators of Compromise
+## Indicators of Compromise
 •	Suspicious command line
 •	Base64 payload
 •	Process information
