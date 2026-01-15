@@ -1,11 +1,11 @@
 #  Notes – Lab 01
 
 ## Powershell script to encode Get-Time 
-- $cmd = 'Get-Process'   Defines the command to encode
-- $bytes = [System.Text.Encoding]::UTF8.GetBytes($cmd)   Converts text into Unicode bytes
-- $encoded = [Convert]::ToBase64String($bytes)    Conversion into a 64 bit string, used to hide commands
-- $encoded    Prints to screen
-- “C:\Windows\System32\WindowsPowershell\v1.0\powershell.exe” -NoProfile -EncodedCommand RwBlAHQALQBEAGEAdABlAA==     Starts process, passes the argument and resultes in Sysmon Event ID 1
+- $cmd = 'Get-Process'       Defines the command to encode
+- $bytes = [System.Text.Encoding]::UTF8.GetBytes($cmd)       Converts text into Unicode bytes
+- $encoded = [Convert]::ToBase64String($bytes)        Conversion into a 64 bit string, used to hide commands
+- $encoded        Prints to screen
+- “C:\Windows\System32\WindowsPowershell\v1.0\powershell.exe” -NoProfile -EncodedCommand RwBlAHQALQBEAGEAdABlAA==         Starts process, passes the argument and resultes in Sysmon Event ID 1
 
 ## Initial Observation
 - Sysmon Event ID 1 triggered on powershell.exe
@@ -18,10 +18,10 @@
 - Is this normal admin behavior?
 
 ## Indicators of Compromise
-•	Suspicious command line
-•	Base64 payload
-•	Process information
-•	User account 
+-	Suspicious command line
+-	Base64 payload
+-	Process information
+-	User account 
 
 ## Decoding Results
 - Base64 decoded using UTF-16LE
@@ -35,7 +35,7 @@
 
 ## Lessons Learned
 - Get-Date – Powershell misinterpreted the bytes and decoded as Get-Datu
-- PowerShell encoding issues can cause malformed commands. Fixed via execution of a single command which generated UTF-16LE, passed it to powershell.exe and executed it immediately
+- PowerShell encoding issues can cause malformed commands. 
 - Always verify PowerShell version and encoding
 
 
