@@ -5,7 +5,7 @@ Detect and analyse suspicious PowerShell activity using Sysmon on a Windows 11 e
 
 # Environment
 - Windows 11 (VirtualBox)
-- Sysmon (Event IDs 1, 3)
+- Sysmon (Event IDs 1)
 - PowerShell 5.1
 
 # Path to Sysmon logs:
@@ -34,12 +34,6 @@ The Base64 string decoded to the benign command: Get-Date
 Encoded PowerShell commands are commonly used by attackers to evade detection.
 Although the decoded command was benign (`Get-Date`), the execution technique
 matches real-world malware behavior.
-
-# Indicators of Compromise
-•	Suspicious command line
-•	Base64 payload
-•	Process information
-•	User account 
 
 # MITRE ATT&CK
 - T1059.001 – PowerShell
