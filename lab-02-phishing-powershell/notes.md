@@ -34,6 +34,28 @@ CMD:
 •	TargetFilename:
 •	File location user folders – phishing indicator
 
+## MITRE ATT&CK Analysis
+
+### T1566 – Phishing (Initial Access)
+Intial access  was simulated as a phishing email containing an
+invoice themed attachment. User interaction with the attachment represents
+a common phishing scenario where execution occurs only after the user opens
+the file or clicks a link.
+
+### T1059.001 – Command and Scripting Interpreter: PowerShell (Execution)
+Sysmon Event ID 1 shows the execution of `powershell.exe` with a scripted
+command used to retrieve external content. The command line indicates intentional execution rather than background
+system activity.
+
+### T1071.001 – Application Layer Protocol: Web Protocols (Command and Control)
+Sysmon Event ID 3 confirms outbound HTTPS communication to an external domain.
+Attackers commonly use standard web protocols such as HTTPS to blend in with
+legitimate traffic and evade basic network filtering.
+
+### T1036 – Masquerading (Defense Evasion)
+The downloaded file was named `invoice.html` and written to a user accessible directory. Invoice related filenames are a
+common masquerading technique used in phishing and increase the likelihood of user interaction.
+
 ## Analysis
 This lab simulates phishing-style payload delivery using PowerShell. A PowerShell process was executed following user interaction with an invoice themed  phishing attachment which are commonly used in phishing campaigns. This resulted in outbound network communication and file creation.
 
