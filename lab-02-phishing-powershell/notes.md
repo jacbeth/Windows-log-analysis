@@ -6,16 +6,15 @@ Upon opening the attachment, suspicious activity was observed on the
 endpoint.
 
 ## Incident Timeline
-
 - User received a phishing email containing an invoice-themed attachment
 - User executed the attachment, triggering a PowerShell process
 - PowerShell initiated an outbound HTTPS connection to an external domain
-- A file named `invoice.html` was written to the user's Documents directory
+- A file named 'invoice.html` was written to the user's Documents directory
 
 ## Detection 
 - PowerShell was used instead of a browser to retrieve external content
-- The file was written to a user-accessible directory
-- Invoice-themed filenames are commonly used in phishing campaigns
+- The file was written to a user accessible directory
+- Invoice themed filenames are commonly used in phishing campaigns
 - Outbound network traffic originated from a scripting engine
 
 ## Evidence
