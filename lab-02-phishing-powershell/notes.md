@@ -12,10 +12,6 @@ endpoint.
 - PowerShell initiated an outbound HTTPS connection to an external domain
 - A file named `invoice.html` was written to the user's Documents directory
 
-## Incident Summary
-A PowerShell process was executed following user interaction with a phishing
-attachment, resulting in outbound network communication and file creation.
-
 ## Detection 
 - PowerShell was used instead of a browser to retrieve external content
 - The file was written to a user-accessible directory
