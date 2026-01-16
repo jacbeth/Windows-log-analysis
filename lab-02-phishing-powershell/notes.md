@@ -5,12 +5,6 @@ and instructed the user to open the attachment to review invoice details.
 Upon opening the attachment, suspicious activity was observed on the
 endpoint.
 
-## Incident Timeline
-- User received a phishing email containing an invoice-themed attachment
-- User executed the attachment, triggering a PowerShell process
-- PowerShell initiated an outbound HTTPS connection to an external domain
-- A file named 'invoice.html` was written to the user's Documents directory
-
 ## Detection 
 - PowerShell was used instead of a browser to retrieve external content
 - The file was written to a user accessible directory
@@ -57,7 +51,11 @@ The downloaded file was named `invoice.html` and written to a user accessible di
 common masquerading technique used in phishing and increase the likelihood of user interaction.
 
 ## Analysis
-This lab simulates phishing-style payload delivery using PowerShell. A PowerShell process was executed following user interaction with an invoice themed  phishing attachment which are commonly used in phishing campaigns. This resulted in outbound network communication and file creation.
+This lab simulates phishing-style payload delivery using PowerShell. Following
+user interaction with an invoice themed attachment, a PowerShell process was
+executed, resulting in outbound network communication and file creation. The
+observed behavior aligns with common phishing and initial payload delivery
+techniques.
 
 ## Response Actions
 - Isolated the affected endpoint
@@ -68,6 +66,6 @@ This lab simulates phishing-style payload delivery using PowerShell. A PowerShel
 ## Lessons Learned
 This incident highlights the importance of monitoring scripting engines
 such as PowerShell and correlating process execution with network activity
-and file creation to detect phishing-based payload delivery.
+and file creation to effectivly detect phishing based payload delivery.
 
 
