@@ -5,6 +5,13 @@ and instructed the user to open the attachment to review invoice details.
 Upon opening the attachment, suspicious activity was observed on the
 endpoint.
 
+## Incident Timeline
+1. User received a phishing email with an invoice-themed attachment
+2. User opened the attachment
+3. A PowerShell process was executed
+4. PowerShell initiated outbound HTTPS communication
+5. A file named `invoice.html` was written to the user's Documents directory
+
 ## Detection 
 - PowerShell was used instead of a browser to retrieve external content
 - The file was written to a user accessible directory
@@ -13,9 +20,8 @@ endpoint.
 
 ## Evidence
 ## Event ID 1 — Process Creation
-Parent process
 Image: 
-CMD: 
+CommandLine: 
 
 ## Event ID 3 — Network Connection
 •	Image: powershell.exe
@@ -25,7 +31,7 @@ CMD:
 
 ## Event ID 11 — File Creation
 •	Image: powershell.exe
-•	TargetFilename:
+•	TargetFilename:'invoice.html'
 •	File location user folders – phishing indicator
 
 ## MITRE ATT&CK Analysis
@@ -51,10 +57,10 @@ The downloaded file was named `invoice.html` and written to a user accessible di
 common masquerading technique used in phishing and increase the likelihood of user interaction.
 
 ## Analysis
-This lab simulates phishing-style payload delivery using PowerShell. Following
+This lab simulates phishing style payload delivery using PowerShell. Following
 user interaction with an invoice themed attachment, a PowerShell process was
 executed, resulting in outbound network communication and file creation. The
-observed behavior aligns with common phishing and initial payload delivery
+observed behaviour aligns with common phishing and initial payload delivery
 techniques.
 
 ## Response Actions

@@ -1,39 +1,62 @@
-# Phishing Detection Lab
+\# Lab 2: Phishing Email Payload Delivery
 
-├── README.md  
-├── notes.md   
-└── screenshots/
-    ├── sysmon-event1-powershell.png
-    ├── sysmon-event3-network.png
-    └── sysmon-event11-file.png
 
-## Objective
-Simulate phishing-style payload delivery and analyse endpoint behaviour using
-Sysmon telemetry.
 
-## Scenario
-A user received an invoice themed phishing email and interacted with the
-attachment, resulting in suspicious activity on the endpoint.
+\## Objective
 
-## Tools Used
-- Windows 11
-- PowerShell
-- Sysmon
-- Event Viewer
+Simulate a phishing email scenario that results in PowerShell based payload
 
-## Detection Summary
-PowerShell execution was observed initiating an outbound HTTPS connection and
-creating a file in a user accessible directory.
+delivery and investigate the activity using Sysmon logs.
 
-## Evidence
-- Sysmon Event ID 1: PowerShell process creation
-- Sysmon Event ID 3: HTTPS connection to example.com
-- Sysmon Event ID 11: File creation (invoice.html)
-  
-## MITRE ATT&CK
-- T1566 – Phishing
-- T1059.001 – PowerShell
-- T1071.001 – Web Protocols
-- T1036 – Masquerading
+
+
+\## Scenario
+
+A user in the Accounts department received an email containing an attachment
+
+titled "Invoice.html". The email claimed a payment was overdue and instructed
+
+the user to open the attachment. After the attachment was opened, suspicious
+
+activity was observed on the endpoint.
+
+
+
+\## Tools Used
+
+\- Windows 11
+
+\- PowerShell
+
+\- Sysmon
+
+\- Event Viewer
+
+
+
+\## Detection Summary
+
+Investigation identified PowerShell execution initiating outbound HTTPS
+
+communication and writing a file to a user accessible directory, consistent
+
+with phishing based payload delivery.
+
+
+
+\## MITRE ATT\&CK Mapping
+
+| Tactic | Technique ID | Technique |
+
+|------|-------------|-----------|
+
+| Initial Access | T1566 | Phishing |
+
+| Execution | T1059.001 | PowerShell |
+
+| Command and Control | T1071.001 | Web Protocols |
+
+| Defence Evasion | T1036 | Masquerading |
+
 
 
