@@ -21,7 +21,7 @@ endpoint.
 ## Evidence
 ## Event ID 1 — Process Creation
 Image: C:\\Windows\System32\WindowsPowerShell\v1.0\powershell.exe 
-CommandLine: powershell.exe -NoProfile -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; (New-Object Net.WebClient).DownloadFile('http://example.com', '$env:USERPROFILE\Documents\Phishing_Test\invoice.html')"
+CommandLine: powershell.exe -NoProfile -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; (New-Object Net.WebClient).DownloadFile('https://example.com', '$env:USERPROFILE\Documents\Phishing_Test\invoice.html')"
 User: DESKTOP-NJTJAHZ\windows11
 
 ## Event ID 3 — Network Connection
@@ -36,7 +36,7 @@ TargetFilename:C:\\Users\windows11\Appdata\Local\Temp\__PSScriptPolicyTest_rc5tv
 
 ## MITRE ATT&CK Analysis
 ### T1566 – Phishing (Initial Access)
-Intial access  was simulated as a phishing email containing an
+Initial access  was simulated as a phishing email containing an
 invoice themed attachment. User interaction with the attachment represents
 a common phishing scenario where execution occurs only after the user opens
 the file or clicks a link.

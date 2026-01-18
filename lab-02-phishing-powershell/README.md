@@ -14,9 +14,7 @@ Scenario
 
 A user in the Accounts department received an email containing an attachment
 
-titled "Invoice.html". The email claimed a payment was overdue and instructed
-
-the user to open the attachment. After the attachment was opened, suspicious
+titled "Invoice.html". After the attachment was opened, suspicious
 
 activity was observed on the endpoint.
 
