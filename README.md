@@ -1,6 +1,6 @@
-SOC Analyst Labs
+Windows Log Analysis Labs
 
-This repository contains hands-on security operations labs focused on
+This repository contains windows log analysis labs focused on
 endpoint detection, log analysis, and incident investigation.
 
 Tools Used
@@ -15,6 +15,6 @@ Labs
 
 1. Suspicious PowerShell Execution
 2. Phishing Email Analysis
-3. Malware Behavioral Analysis
+3. Malware Behavioural Analysis
 4. Brute Force Detection
 5. Lateral Movement Detection
