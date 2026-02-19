@@ -20,19 +20,7 @@ activity was observed on the endpoint.
 
 
 
-## Tools Used
-
-\- Windows 11
-
-\- PowerShell
-
-\- Sysmon
-
-\- Event Viewer
-
-
-
-\# Detection Summary
+## Detection
 
 Investigation identified PowerShell execution initiating outbound HTTPS
 

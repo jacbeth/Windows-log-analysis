@@ -1,3 +1,5 @@
+# Lab 2: Phishing Email 
+
 ## Scenario
 A user in the accounts department received an email with an
 attachment titled "Invoice.html". The email stated a payment was overdue
