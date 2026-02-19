@@ -40,19 +40,3 @@ communication and writing a file to a user accessible directory, consistent
 
 with phishing based payload delivery.
 
-
-
-## MITRE ATT\&CK Mapping
-
-| Tactic | Technique ID | Technique |
-
-|------|-------------|-----------|
-
-| Initial Access | T1566 | Phishing |
-
-| Execution | T1059.001 | PowerShell |
-
-| Command and Control | T1071.001 | Web Protocols |
-
-| Defence Evasion | T1036 | Masquerading |
-

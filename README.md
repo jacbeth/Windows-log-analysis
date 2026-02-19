@@ -16,5 +16,6 @@ Labs
 1. Suspicious PowerShell Execution
 2. Phishing Email Analysis
 3. Malware Behavioural Analysis
-4. Brute Force Detection
-5. Lateral Movement Detection
+
+
+

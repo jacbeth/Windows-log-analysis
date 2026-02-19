@@ -6,7 +6,7 @@ Upon opening the attachment, suspicious activity was observed on the
 endpoint.
 
 ## Incident Timeline
-1. User received a phishing email with an invoice-themed attachment
+1. User received a phishing email with an invoice-themed attachment, common technique in phishing campaigns
 2. User opened the attachment
 3. A PowerShell process was executed
 4. PowerShell initiated outbound HTTPS communication
@@ -15,7 +15,6 @@ endpoint.
 ## Detection 
 - PowerShell was used instead of a browser to retrieve external content
 - The file was written to a user accessible directory
-- Invoice themed filenames are commonly used in phishing campaigns
 - Outbound network traffic originated from a scripting engine
 
 ## Evidence
