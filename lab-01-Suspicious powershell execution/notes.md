@@ -10,7 +10,7 @@ Detect and analyse suspicious PowerShell activity using Sysmon on a Windows 11 e
 * “C:\\Windows\\System32\\WindowsPowershell\\v1.0\\powershell.exe” -NoProfile -EncodedCommand RwBlAHQALQBEAGEAdABlAA==         Starts process, passes the argument and results in Sysmon Event ID 1
 
 ### Screenshot
-![powershell_script](./screenshots/1_powershell_execution.png)
+![powershell_script](./screenshots/01_powershell_execution.png)
 
 ## Detection
 A PowerShell process was observed executing an encoded command with execution policy bypass.
