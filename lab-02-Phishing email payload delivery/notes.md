@@ -15,7 +15,7 @@ endpoint.
 5. A file named `invoice.html` was written to the user's Documents directory
 
 ### Screenshot
-![phishing-execution](./screenshots/01_phishing execution.png)
+![phishing-execution](./screenshots/01_phishing-execution.png)
 
 ## Detection 
 - PowerShell was used instead of a browser to retrieve external content
@@ -30,6 +30,7 @@ User: DESKTOP-NJTJAHZ\windows11
 
 ### Screenshot
 ![sysmon_event1](./screenshots/03_sysmon_event1_process_creation.png)
+
 
 ## Event ID 3 — Network Connection
 Image: C:\\Windows\System32\WindowsPowerShell\v1.0\powershell.exe 
