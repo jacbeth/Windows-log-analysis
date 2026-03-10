@@ -25,11 +25,17 @@ Image: C:\\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 CommandLine: powershell.exe -NoProfile -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; (New-Object Net.WebClient).DownloadFile('https://example.com', '$env:USERPROFILE\Documents\Phishing_Test\invoice.html')"
 User: DESKTOP-NJTJAHZ\windows11
 
+### Screenshot
+![sysmon_event1](./screenshots/03_sysmon_event1_process_creation.png)
+
 ## Event ID 3 — Network Connection
 Image: C:\\Windows\System32\WindowsPowerShell\v1.0\powershell.exe 
 DestinationHostname: example.com
 DestinationPort: 80
 Protocol: HTTP
+
+### Screenshot
+![sysmon_event3](./screenshots/04_sysmon_event3_network_connection.png)
 
 ## Event ID 11 — File Creation
 Image: C:\\Windows\System32\WindowsPowerShell\v1.0\powershell.exe 
