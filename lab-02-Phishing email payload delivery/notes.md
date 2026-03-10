@@ -14,8 +14,11 @@ endpoint.
 4. PowerShell initiated outbound HTTPS communication
 5. A file named `invoice.html` was written to the user's Documents directory
 
-### Screenshot
-![phishing-execution](./screenshots/01_phishing-execution.png)
+### Screenshot - powershell execution
+![powershell-execution](./screenshots/01_phishing-execution.png)
+
+### Screenshot - invoice.html written to directory
+![phishing_execution](./screenshots/02_phishing_invoice.html.png)
 
 ## Detection 
 - PowerShell was used instead of a browser to retrieve external content
