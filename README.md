@@ -1,9 +1,9 @@
-Windows Log Analysis Labs
+## Windows Log Analysis Labs
 
 This repository contains windows log analysis labs focused on
 endpoint detection, log analysis, and incident investigation.
 
-Tools Used
+Tools Used:
 
 * Windows 11
 * Sysmon
