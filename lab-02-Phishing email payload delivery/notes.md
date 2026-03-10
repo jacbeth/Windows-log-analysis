@@ -18,7 +18,7 @@ endpoint.
 ![powershell-execution](./screenshots/01_phishing-execution.png)
 
 ### Screenshot - invoice.html written to directory
-![phishing_execution](./screenshots/02_phishing_invoice.html.png)
+![phishing_execution](./screenshots/02_phishing_invoice.png)
 
 ## Detection 
 - PowerShell was used instead of a browser to retrieve external content
