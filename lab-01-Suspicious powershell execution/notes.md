@@ -29,6 +29,9 @@ A PowerShell process was observed executing an encoded command with execution po
 -	Hashes: SHA256=6A7SF3DDA06163BB6253E4F82A283E184D70755C067633C4190FBFF64F0BAECDIMPH9F91C97560360686D37B0E311BB88D64
 The Base64 string decoded to the benign command: Get-Date
 
+### Screenshot
+![sysmon](./screenshots/2_Sysmon_event1_ ProcessGUID_and_Image.jpg)
+
 ## MITRE ATT\&CK mapping
 - T1059.001 – PowerShell
 - T1027 – Obfuscated/Encoded Files
