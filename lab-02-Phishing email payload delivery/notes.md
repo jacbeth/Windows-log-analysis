@@ -34,7 +34,7 @@ File Download (`invoice.html`)
 The HTML attachment triggered PowerShell instead of a browser — an indicator of malicious behaviour.
 
 Screenshot:  
-`./screenshots/01_phishing-execution.png`
+![phishing-execution](./screenshots/01_phishing-execution.png)
 
 ---
 
@@ -42,7 +42,7 @@ Screenshot:
 PowerShell wrote a file named `invoice.html` to a user accessible directory.
 
 Screenshot:  
-`./screenshots/02_phishing_invoice.jpg`
+![file-creation](./screenshots/02_phishing_invoice.jpg)
 
 ---
 
@@ -58,7 +58,7 @@ powershell.exe -NoProfile -Command "[Net.ServicePointManager]::SecurityProtocol 
 - **User:** `DESKTOP-NJTJAHZ\windows11`
 
 Screenshot:  
-`./screenshots/03_sysmon_event1_process_creation.png`
+![sysmon1](./screenshots/03_sysmon_event1_process_creation.png)
 
 ---
 
@@ -69,7 +69,7 @@ Screenshot:
 - **Protocol:** HTTP  
 
 Screenshot:  
-`./screenshots/04_sysmon_event3_network_connection.png`
+![network-connection](./screenshots/04_sysmon_event3_network_connection.png)
 
 ---
 
