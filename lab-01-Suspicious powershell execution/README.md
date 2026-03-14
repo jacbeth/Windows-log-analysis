@@ -42,12 +42,9 @@ Application and Services Logs > Microsoft > Windows > Sysmon > Operational
 
 ```text
 Lab01-Suspicious-PowerShell
-
 │
-
 ├── README.md
-
 ├── Notes.md
-
 └── /screenshots/
+
 
