@@ -1,30 +1,51 @@
-# Lab 2: Phishing Email Payload Delivery
+# Lab 2 – Phishing Email Payload Delivery
 
+---
 
+## 📝 Objective
+Simulate a phishing email scenario that results in PowerShell‑based payload delivery and investigate the activity using Sysmon telemetry.
 
-## Objective
+---
 
-Simulate a phishing email scenario that results in PowerShell based payload
+## 🧪 Scenario Summary
+A user received an email containing an attachment titled **Invoice.html**.  
+After opening the attachment, suspicious behaviour was observed:
 
-delivery and investigate the activity using Sysmon logs.
+- PowerShell execution  
+- Outbound HTTPS communication  
+- File creation in a user directory  
 
+This behaviour is consistent with phishing based initial access.
 
+---
 
-## Scenario
+## 🔍 Detection Summary
+Sysmon logs revealed:
 
-A user in the Accounts department received an email containing an attachment
+- PowerShell retrieving external content  
+- Network connections initiated by a scripting engine  
+- File creation linked to the executed script  
 
-titled "Invoice.html". After the attachment was opened, suspicious
+These indicators align with phishing payload delivery techniques.
 
-activity was observed on the endpoint.
+---
 
+## 🧩 MITRE ATT&CK Mapping
+- **T1566 – Phishing**  
+- **T1059.001 – PowerShell**  
+- **T1071.001 – Web Protocols**  
+- **T1036 – Masquerading**
 
+---
 
-## Detection
-
-Investigation identified PowerShell execution initiating outbound HTTPS
-
-communication and writing a file to a user accessible directory, consistent
-
-with phishing based payload delivery.
-
+## 📁 Repository Structure
+```text
+/Lab02-Phishing-Email/
+│
+├── README.md
+├── Notes.md
+└── /screenshots/
+      ├── 01_phishing-execution.png
+      ├── 02_phishing_invoice.jpg
+      ├── 03_sysmon_event1_process_creation.png
+      └── 04_sysmon_event3_network_connection.png

