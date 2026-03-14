@@ -1,4 +1,4 @@
-# Lab 01 – [Suspicious PowerShell Execution]
+# Lab 01 – Suspicious PowerShell Execution
 
 ## 1. Objective
 Detect and analyse suspicious PowerShell activity using Sysmon on a Windows 11 endpoint.  
