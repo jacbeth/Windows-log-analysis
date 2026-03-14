@@ -56,7 +56,7 @@ Sysmon logged the following fields:
 `Get-Date`
 
 ### Screenshot
-![sysmon](./screenshots/2_Sysmon_event1_ ProcessGUID_and_Image.jpg)
+![sysmon](./screenshots/3_Sysmon_event1_parentprocess.jpg)
 
 ---
 
