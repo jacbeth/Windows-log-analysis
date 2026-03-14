@@ -1,15 +1,5 @@
 # Lab 01 – [Suspicious PowerShell Execution]
 
-<!-- jacbeth Security Labs Branding -->
-![jacbeth Labs](https://img.shields.io/badge/jacbeth%20Labs-Cybersecurity-%230A0A0A)
-![Status: In Progress](https://img.shields.io/badge/Status-In%20Progress-%23FFC300)
-![Category: SOC Lab](https://img.shields.io/badge/Category-SOC%20Lab-%230078D6)
-![Platform: Windows](https://img.shields.io/badge/Platform-Windows-%230078D6)
-![Tool: TBD](https://img.shields.io/badge/Tool-TBD-%238A2BE2)
-![Detection: TBD](https://img.shields.io/badge/Detection-TBD-%23FF8800)
-![MITRE: TBD](https://img.shields.io/badge/MITRE-TBD-%23C0392B)
-
-
 ## 1. Objective
 Detect and analyse suspicious PowerShell activity using Sysmon on a Windows 11 endpoint.  
 The `-EncodedCommand` flag is associated with obfuscation and malicious script execution.  
@@ -66,7 +56,7 @@ Sysmon logged the following fields:
 `Get-Date`
 
 ### Screenshot
-![sysmon](./screenshots/3_Sysmon_event1_parentprocess.jpg)
+![sysmon](./screenshots/03_Sysmon_event1_parentprocess.jpg)
 
 ---
 
