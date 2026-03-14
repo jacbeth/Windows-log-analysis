@@ -40,6 +40,7 @@ Application and Services Logs > Microsoft > Windows > Sysmon > Operational
 
 ## 📁 Repository Structure
 
+```text
 Lab01-Suspicious-PowerShell
 
 │
