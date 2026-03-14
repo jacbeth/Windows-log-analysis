@@ -1,5 +1,67 @@
 # Notes – Suspicious PowerShell Execution
 
+# Lab XX – [Lab Title Here]
+
+<!-- jacbeth Security Labs Branding -->
+![jacbeth Security Labs](https://img.shields.io/badge/jacbeth%20Labs-Cybersecurity-0A0A0A)
+![Status: In Progress](https://img.shields.io/badge/Status-In%20Progress-FFC300)
+![Category: SOC Lab](https://img.shields.io/badge/Category-SOC%20Lab-0078D6)
+![Platform: Windows](https://img.shields.io/badge/Platform-Windows-0078D6)
+![Tool: TBD](https://img.shields.io/badge/Tool-TBD-8A2BE2)
+![Detection: TBD](https://img.shields.io/badge/Detection-TBD-FF8800)
+![MITRE: TBD](https://img.shields.io/badge/MITRE-TBD-C0392B)
+
+---
+
+## 📝 Objective
+Briefly describe the purpose of the lab.  
+Example:  
+Detect and analyse suspicious activity using [tool] on [platform].
+
+---
+
+## 🧪 Environment
+List the components used in the lab:
+
+- OS / VM platform  
+- Tools (Sysmon, PowerShell, Sentinel, etc.)  
+- Log sources  
+- Any special configurations  
+
+**Log Path (if applicable):**  
+`Application and Services Logs > ...`
+
+---
+
+## 🔍 Initial Observation
+Summarise what triggered the investigation:
+
+- Event ID  
+- Suspicious behaviour  
+- Alerts  
+- User/process involved  
+
+---
+
+## 🧬 Analysis Summary
+High‑level overview of what you discovered:
+
+- What the event actually was  
+- Whether the payload was benign/malicious  
+- Why the technique is suspicious  
+- Whether escalation is needed  
+
+---
+
+## 🧩 MITRE ATT&CK Mapping
+- **TXXXX – Technique Name**  
+- **TXXXX – Technique Name**  
+
+---
+
+## 📁 Repository Structure
+
+
 ## 1. Objective
 Detect and analyse suspicious PowerShell activity using Sysmon on a Windows 11 endpoint.  
 The `-EncodedCommand` flag is associated with obfuscation and malicious script execution.  
