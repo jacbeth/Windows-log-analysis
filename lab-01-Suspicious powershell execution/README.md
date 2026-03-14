@@ -43,7 +43,10 @@ Application and Services Logs > Microsoft > Windows > Sysmon > Operational
 Lab01-Suspicious-PowerShell
 
 │
+
 ├── README.md
+
 ├── Notes.md
+
 └── /screenshots/
 
