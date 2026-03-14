@@ -1,39 +1,80 @@
-# Lab 01 – Suspicious PowerShell Execution
+\# Lab 01 – Suspicious PowerShell Execution
 
 
-## Objective
+
+\## 📝 Objective
 
 Detect and analyse suspicious PowerShell activity using Sysmon on a Windows 11 endpoint.
 
 
-## Environment
 
-* Windows 11 (VirtualBox)
-* Sysmon (Event ID 1)
-* PowerShell 5.1
+\## 🧪 Environment
+
+\- Windows 11 (VirtualBox)
+
+\- Sysmon (Event ID 1 – Process Creation)
+
+\- PowerShell 5.1
 
 
-## Path to Sysmon logs:
+
+\*\*Sysmon Log Path:\*\*  
 
 Application and Services Logs > Microsoft > Windows > Sysmon > Operational
 
 
-## Initial Observation
 
-- Sysmon Event ID 1 triggered on powershell.exe
-- Encoded command present
-- Execution policy bypass observed
+\## 🔍 Initial Observation
 
+\- Sysmon Event ID 1 triggered on `powershell.exe`
 
-## Decoding Results
+\- Encoded command present
 
-- Base64 decoded Get-Date
-- No additional payloads observed
+\- Execution policy bypass observed
 
 
-## Summary
 
-- Technique is suspicious
-- Payload is benign
-- Would escalate for further review in production
+\## 🧬 Decoding Results
+
+\- Base64 decoded to: `Get-Date`
+
+\- No additional payloads observed
+
+
+
+\## 🧠 Analyst Summary
+
+\- \*\*Technique:\*\* Suspicious  
+
+\- \*\*Payload:\*\* Benign  
+
+\- \*\*Action:\*\* Would escalate for further review in a production SOC due to:
+
+&#x20; - Encoded command usage  
+
+&#x20; - Execution policy bypass  
+
+&#x20; - Potential for LOLBins abuse  
+
+
+
+\## 🧩 MITRE ATT\&CK Mapping
+
+\- \*\*T1059.001 – PowerShell\*\*
+
+\- \*\*T1027 – Obfuscated/Encoded Files\*\*
+
+
+
+\## 📁 Repository Structure
+
+/Lab01-Suspicious-PowerShell/
+
+│
+
+├── README.md
+
+├── Notes.md
+
+└── /screenshots/
 
