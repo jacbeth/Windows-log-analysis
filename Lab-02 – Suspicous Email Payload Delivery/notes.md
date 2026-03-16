@@ -1,4 +1,4 @@
-# Notes – Phishing Email Payload Delivery
+# Suspicious Email Payload Delivery
 
 ## 1. Scenario Overview
 A user in the Accounts department received a phishing email containing an HTML attachment named **invoice.html**.  

@@ -1,4 +1,4 @@
-# Lab 2 – Phishing Email Payload Delivery
+# Lab 2 – Suspicious Email Payload Delivery
 
 ---
 
