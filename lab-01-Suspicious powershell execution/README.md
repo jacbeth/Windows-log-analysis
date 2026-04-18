@@ -10,10 +10,6 @@ Detect and analyse suspicious PowerShell activity using Sysmon on a Windows 11 e
 - Sysmon (Event ID 1 – Process Creation)
 - PowerShell 5.1
 
-*Sysmon Log Path:*
-
-Application and Services Logs > Microsoft > Windows > Sysmon > Operational
-
 ## 🔍 Initial Observation
 
 - Sysmon Event ID 1 triggered on `powershell.exe`
@@ -32,19 +28,4 @@ Application and Services Logs > Microsoft > Windows > Sysmon > Operational
 - Encoded command usage  
 - Execution policy bypass  
 - Potential for LOLBins abuse  
-
-## 🧩 MITRE ATT\&CK Mapping
-
-- **T1059.001 – PowerShell**
-- **T1027 – Obfuscated/Encoded Files**
-
-## 📁 Repository Structure
-
-```text
-Lab01-Suspicious-PowerShell
-│
-├── README.md
-├── Notes.md
-└── /screenshots/
-
 
